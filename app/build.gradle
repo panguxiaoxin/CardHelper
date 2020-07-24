@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.ryz.plugin.card'
 
 android {
     compileSdkVersion 29
@@ -12,6 +13,11 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [MODULE_NAME:project.getName()]
+            }
+        }
     }
 
     buildTypes {
@@ -29,5 +35,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
+    implementation project(':card-api')
+    annotationProcessor project(':card-compiler')
 }
