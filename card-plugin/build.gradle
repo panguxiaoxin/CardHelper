@@ -1,0 +1,22 @@
+apply plugin: 'java-library'
+apply plugin: 'groovy'
+apply plugin: 'maven'
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api gradleApi()
+    api localGroovy()
+    api 'com.android.tools.build:transform-api:1.5.0'
+    api 'com.android.tools.build:gradle:3.0.1'
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
+
+uploadArchives {
+    repositories.mavenDeployer {
+        pom.version = '1.0.0'
+        pom.artifactId = 'cardpluginlocal'
+        pom.groupId = 'com.ryz.card'
+        repository(url: uri('../repo'))
+    }
+}

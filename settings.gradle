@@ -1,0 +1,6 @@
+include ':app'
+include ':card-annotation'
+include ':card-api'
+include ':card-compiler'
+include ':card-plugin'
+rootProject.name = "CardHelper"
